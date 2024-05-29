@@ -5,7 +5,7 @@ sequenceDiagram
 
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
     activate server
-    Note over browser,server: Sending JSON data in the request body with Content-Type: application/json; charset=utf-8
+    Note over browser,server: Sending JSON data in the request body with Content-Type: application/json charset=utf-8
     server-->>browser: 201 created
     Note over server,browser: Server confirms the creation of a new note
     deactivate server
