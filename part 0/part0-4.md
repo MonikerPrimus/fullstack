@@ -3,6 +3,18 @@ sequenceDiagram
     participant browser
     participant server
 
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate server
+    server-->>browser: 302 Found
+    Note over server,browser: Server responds with 302 status code and Location header set to notes
+    deactivate server
+
+    Note right of browser: Browser automatically issues a new GET request to the URL specified in the Location header
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate server
+    server-->>browser: HTML document
+    deactivate server
+
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
     server-->>browser: HTML document
