@@ -12,21 +12,23 @@ const Part = (props) => {
   return (
     <div>
       <p>
-        Part: {props.part} - Number of exercises: {props.exercises}
+        Part: {props.part.name} - Number of exercises: {props.part.exercises}
       </p>
-    </div>
-  );
-};
-
-const Content = (props) =>{
-  return (
-    <div>
-      <Part part={props.course.parts[0].name} exercises={props.course.parts[0].exercises}/>
-      <Part part={props.course.parts[1].name} exercises={props.course.parts[1].exercises}/>
-      <Part part={props.course.parts[2].name} exercises={props.course.parts[2].exercises}/>
     </div>
   )
 }
+
+const Content = (props) => {
+  return (
+    <div>
+      <Part part={props.course.parts[0]} />
+      <Part part={props.course.parts[1]} />
+      <Part part={props.course.parts[2]} />
+    </div>
+  )
+}
+
+
 
 const Total = (props) =>{
   {/*let totalExercise = props.course.parts.reduce((sum, part) => sum + part.exercises, 0)*/}
